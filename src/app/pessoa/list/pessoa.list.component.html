@@ -1,0 +1,57 @@
+<h1>Contatos</h1>
+
+<div class="row">
+  <div class="form-group">
+    <a [routerLink]="['/pessoa/persist']" class="btn btn-primary btn-sm">
+        <span class="glyphicon glyphicon-plus"></span> Adicionar
+    </a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group">
+      <label for="codigo">Informe o nome para filtrar:</label>
+      <input type="text" #busca (keyup)="0" class="form-control" >
+  </div>
+</div>
+
+<div class="row">
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>CPF</th>
+        <th>Nome</th>
+        <th>Telefone</th>
+        <th>E-mail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pessoa of pessoas | filterPessoaNome:busca.value">
+        <th scope="row"> 
+          <a [routerLink]="['/pessoa/persist/', pessoa.id]" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-pencil"></span>
+          </a>
+        </th>
+        <th>
+          <a (click)="delete(pessoa.id)" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-trash"></span>
+          </a>
+        </th>
+        <th>
+            <a [routerLink]="['/pessoa/detalhe/', pessoa.id]" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-info-sign"></span>
+          </a>
+          </th>
+        <td>{{pessoa.cpf}}</td>
+        <td>{{pessoa.nome}}</td>
+        <td>{{pessoa.telefone}}</td>
+        <td>{{pessoa.email | lowercase}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

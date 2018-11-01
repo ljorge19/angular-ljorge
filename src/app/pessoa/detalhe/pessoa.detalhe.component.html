@@ -1,0 +1,42 @@
+
+<h1>Detalhe</h1>
+
+<!-- <pre>{{pessoa | json}}</pre> -->
+
+
+<form #contatoForm="ngForm">
+
+  <div class="form-group">
+    <a [routerLink]="['/pessoa/list']" class="btn btn-primary btn-sm">
+        <span class="glyphicon glyphicon-menu-left"></span> Voltar
+    </a>
+  </div>
+
+  <input type="hidden" [(ngModel)]="pessoa.id" name="id">
+
+  <div class="form-group">
+    <label for="cpf">CPF</label>
+    <input readonly="true" type="text" [(ngModel)]="pessoa.cpf" name="cpf" class="form-control" placeholder="CPF" required>
+  </div>
+
+  <div class="form-group">
+    <label for="nome">Nome</label>
+    <input readonly="true" type="text" [(ngModel)]="pessoa.nome" name="nome" class="form-control" placeholder="Nome" required>
+  </div>
+
+  <div class="form-group">
+    <label for="telefone">Telefone</label>
+    <input readonly="true" type="tel" [(ngModel)]="pessoa.telefone" name="telefone" class="form-control" placeholder="Telefone" required>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input readonly="true" type="email" [(ngModel)]="pessoa.email" name="email" class="form-control" placeholder="Email" required>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputDescricao">Descrição</label>
+    <textarea readonly="true" style="height: 153px;" name="descricao" [(ngModel)]="pessoa.descricao"  class="form-control" placeholder="Descrição"></textarea>
+  </div>
+
+</form>
